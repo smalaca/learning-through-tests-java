@@ -37,10 +37,14 @@ public class FinallyTest {
         assertSame(true, thrower.wasFinallyReached());
     }
 
-    @Test(expected = Exception.class)
-    public void finallyWasReachedAndExceptionWasPassed() throws Exception {
-        thrower.letMeToPassException(true);
-        
-        assertSame(true, thrower.wasFinallyReached());
+    @Test
+    public void finallyWasReachedAndExceptionWasPassed() {
+        try {
+        	thrower.letMeToPassException(true);
+        	fail("Exception should be thrown");
+        }
+        catch (Exception exception){
+        	assertSame(true, thrower.wasFinallyReached());
+        }
     }
 }
