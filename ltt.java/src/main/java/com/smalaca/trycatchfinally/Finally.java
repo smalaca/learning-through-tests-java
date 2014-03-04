@@ -4,6 +4,7 @@ class Finally {
 
     private boolean finallyWasReached = false;
 
+    @SuppressWarnings("finally")
     int giveMeSomething(boolean throwException) {
         try {
             if (throwException)
