@@ -18,4 +18,14 @@ public class OuterClassTest {
 		assertTrue(outer.new InnerClass().amIInner());
 		assertTrue(new OuterClass().new InnerClass().amIInner());
 	}
+	
+	@Test
+	public void shadowing() {
+		String innerName = "Inner";
+		String outerName = "Outer";
+		OuterClass.InnerClass inner = new OuterClass(outerName).new InnerClass(innerName);
+
+		assertSame(innerName, inner.getName());
+		assertSame(outerName, inner.getOuterName());
+	}
 }
