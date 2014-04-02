@@ -4,9 +4,9 @@ class OuterClass {
 	
 	private String name;
 	
-	public OuterClass() {}
+	OuterClass() {}
 	
-	public OuterClass(String name) {
+	OuterClass(String name) {
 		this.name = name;
 	}
 
@@ -21,9 +21,9 @@ class OuterClass {
 		
 		private String name;
 		
-		public InnerClass() {}
+		InnerClass() {}
 		
-		public InnerClass(String name) {
+		InnerClass(String name) {
 			this.name = name;
 		}
 
@@ -31,11 +31,11 @@ class OuterClass {
 			return true;
 		}
 
-		public String getName() {
+		String getName() {
 			return name;
 		}
 
-		public String getOuterName() {
+		String getOuterName() {
 			return OuterClass.this.name;
 		}
 	}
