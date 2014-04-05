@@ -9,6 +9,8 @@ class OuterClass {
 	OuterClass(String name) {
 		this.name = name;
 	}
+	
+	static void doIt() {}
 
 	static class StaticNestedClass {
 		

@@ -7,17 +7,24 @@ import org.junit.Test;
 public class OuterClassTest {
 
 	@Test
-	public void createInstanceOfStaticNestedClass() {
+	public void createInstanceOfStaticNestedClassWithoutInstanceOfOuter() {
 		assertTrue(new OuterClass.StaticNestedClass().amINested());
 	}
+//	
+//	@Test
+//	public void createInstanceOfStaticNestedClassWithInstanceOfOuter() {
+//		assertTrue(new OuterClass.new StaticNestedClass().amINested());
+//	}
 	
 	@Test
-	public void createInstanceOfInenerClass() {
-		OuterClass outer = new OuterClass();
-		
-		assertTrue(outer.new InnerClass().amIInner());
+	public void createInstanceOfInenerClassWithInstanceOfOuter() {
 		assertTrue(new OuterClass().new InnerClass().amIInner());
 	}
+//	
+//	@Test
+//	public void createInstanceOfInnerClassWithoutInstanceOfOuter() {
+//		assertTrue(new OuterClass.InnerClass().amIInner());
+//	}
 	
 	@Test
 	public void shadowing() {
