@@ -25,6 +25,21 @@ public class OuterClassTest {
 //	public void createInstanceOfInnerClassWithoutInstanceOfOuter() {
 //		assertTrue(new OuterClass.InnerClass().amIInner());
 //	}
+//
+//	@Test
+//	public void innerCannotContainStaticMethod() {
+//		assertFalse(new OuterClass().InnerClass.canContainStaticMethod());
+//	}
+//	
+//	@Test
+//	public void innerCannotContainStaticMethod2() {
+//		assertFalse(new OuterClass().new InnerClass().canContainStaticMethod());
+//	}
+	
+	@Test
+	public void outerCanContainStaticMethod() {
+		assertTrue(OuterClass.StaticNestedClass.canContainStaticMethod());
+	}
 	
 	@Test
 	public void shadowing() {
@@ -34,5 +49,23 @@ public class OuterClassTest {
 
 		assertSame(innerName, inner.getName());
 		assertSame(outerName, inner.getOuterName());
+	}
+	
+	@Test
+	public void staticNestedHasAccessToStaticMember() {
+		assertEquals(13, new OuterClass.StaticNestedClass().getFavouriteNumber());
+	}
+	
+	@Test
+	public void innerHasAccessToStaticMember() {
+		assertEquals(13, new OuterClass().new InnerClass().getFavouriteNumber());
+	}
+	
+	@Test 
+	public void staticNestedHasAccessToPrivateMemeber() {
+		String sebastian = "Sebastian";
+		OuterClass outer = new OuterClass(sebastian);
+		
+		assertEquals(sebastian, new OuterClass.StaticNestedClass().getName(outer));
 	}
 }
