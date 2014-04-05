@@ -9,6 +9,7 @@ class WithLocalClass {
 	String getStatic() {
 		class LocalClass {
 			String get() {
+				// both acceptable
 				return staticAttr;
 //				return WithLocalClass.staticAttr;
 			}
@@ -20,7 +21,8 @@ class WithLocalClass {
 	String getRegular() {
 		class LocalClass {
 			String get() {
-				return WithLocalClass.this.regular;
+//				both acceptable
+				return regular;
 //				return WithLocalClass.this.regular;
 			}
 		}
@@ -31,6 +33,7 @@ class WithLocalClass {
 	String getFinal() {
 		class LocalClass {
 			String get() {
+//				both acceptable
 				return finalAttr;
 //				return WithLocalClass.this.finalAttr;
 			}
@@ -38,7 +41,7 @@ class WithLocalClass {
 		
 		return new LocalClass().get();
 	}
-//
+
 //	String getRegularVar() {
 //		String regularVar = "regular var";
 //		
@@ -72,4 +75,38 @@ class WithLocalClass {
 		
 		return new LocalClass().imAlive();
 	}
+
+//	String getStaticMember() {
+//		class LocalClass {
+//			private static String staticMember = "static member"; 
+//			String get() {
+//				return staticMember;
+//			}
+//		}
+//		
+//		return new LocalClass().get();
+//	}
+
+	String getStaticFinalMember() {
+		class LocalClass {
+			private static final String staticMember = "static and final"; 
+			String get() {
+				return staticMember;
+			}
+		}
+		
+		return new LocalClass().get();
+	}
+	
+//	void withInterface() {
+//        interface DoSomething {
+//           public void doIt();
+//        }
+//        
+//        class Run implements DoSomething {
+//            public void doIt() {}
+//        }
+//        
+//        new Run().doIt();
+//    }
 }

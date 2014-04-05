@@ -6,33 +6,19 @@ import org.junit.Test;
 
 public class LocalClassTest {
 
-	@Test
-	public void createInstanceOfLocalClass() {
-		assertTrue(new WithLocalClass().isLocalClassAlive());
-	}
-	
-	@Test
-	public void accessToStaticEnclosingClassAtribute() {
-		assertSame("static", new WithLocalClass().getStatic());
-	}
-	
-	@Test
-	public void accessToRegularEnclosingClassAtribute() {
-		assertSame("regular", new WithLocalClass().getRegular());
-	}
-	
-	@Test
-	public void accessToFinalEnclosingClassAtribute() {
-		assertSame("final", new WithLocalClass().getFinal());
-	}
-//	
 //	@Test
-//	public void accessToRegularMethodVariable() {
-//		assertSame("regular var", new WithLocalClass().getRegularVar());
+//	public void cannotDefineStaticMember() {
+//		assertSame("static member", new WithLocalClass().getStaticMember());
 //	}
 	
+//	@Test
+//	public void cannotDeclareInterface() {
+//		new WithLocalClass().withInterface();
+//	}
+
 	@Test
-	public void accessToFinalMethodVariable() {
-		assertSame("final var", new WithLocalClass().getFinalVar());
+	public void canDefineStaticAndFinalMember() {
+		assertSame("static and final", new WithLocalClass().getStaticFinalMember());
 	}
+
 }
